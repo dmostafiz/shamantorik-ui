@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:mb-2 py-2">
+  <div class="lg:mb-2 py-5">
     <UContainer>
       <div class="flex items-center justify-between">
         <NuxtLink to="/">

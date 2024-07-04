@@ -48,8 +48,8 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn class="text-none" stacked>
-      <v-avatar class="cursor-pointer" size="small">
+    <v-btn class="text-none lg:!hidden" stacked>
+      <v-avatar size="small">
         <v-img alt="John" src="https://cdn.vuetifyjs.com/images/john.jpg"></v-img>
       </v-avatar>
     </v-btn>
