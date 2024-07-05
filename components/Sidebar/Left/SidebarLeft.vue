@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mb-5 !hidden">
+  <v-card class="mb-5">
     <v-card-text>
       <h2 class="text-xl mb-5">
         লগইন করুন</h2>

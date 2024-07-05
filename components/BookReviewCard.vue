@@ -4,7 +4,10 @@
 
     <template #prepend>
       <div class="mr-1">
-        <UAvatar size="sm" src="https://avatars.githubusercontent.com/u/739984?v=4" alt="Avatar" />
+        <UserCardPopup>
+          <UAvatar class="cursor-pointer" size="sm" src="https://avatars.githubusercontent.com/u/739984?v=4"
+            alt="Avatar" />
+        </UserCardPopup>
       </div>
     </template>
 
@@ -15,7 +18,7 @@
           <span class=" text-blue-900">মোস্তাফিজ রহমান</span>
         </NuxtLink> -->
 
-        <span class="text-xs">১৩ই জুন, ২০২২</span>
+        <span class="text-sm">১৩ই জুন, ২০২২</span>
 
 
       </div>

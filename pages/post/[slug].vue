@@ -2,68 +2,24 @@
   <NuxtLayout name="home" :rightSidebar="false" :leftSidebar="false">
     <template #rightSidebar>{{ "" }}</template>
     <!-- <template #leftSidebar>{{ '' }}</template> -->
-    <div class="px-28">
-      <v-card variant="flat">
+    <div class="lg:px-28">
+      <v-card variant="flat" class="border-b">
         <v-card-text>
           <h1 class="text-3xl font-bold">গ্রাম - আমাদের বাংলার প্রাণ!</h1>
 
-          <div class="pt-2 pb-5">
-            <v-menu
-              v-model="menu"
-              location="top start"
-              origin="top start"
-              transition="scale-transition"
-            >
-              <template v-slot:activator="{ props }">
-                <v-chip v-bind="props" link pill color="white" variant="elevated">
-                  <v-avatar start>
-                    <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
-                  </v-avatar>
-
-                  মোস্তাফিজ রহমান
-                </v-chip>
-              </template>
-
-              <v-card width="300">
-                <v-list bg-color="black">
-                  <v-list-item>
-                    <template v-slot:prepend>
-                      <v-avatar
-                        image="https://cdn.vuetifyjs.com/images/john.png"
-                      ></v-avatar>
-                    </template>
-
-                    <v-list-item-title>মোস্তাফিজ রহমান</v-list-item-title>
-
-                    <v-list-item-subtitle>john@google.com</v-list-item-subtitle>
-
-                    <template v-slot:append>
-                      <v-list-item-action>
-                        <v-btn variant="text" icon @click="menu = false">
-                          <v-icon>mdi-close-circle</v-icon>
-                        </v-btn>
-                      </v-list-item-action>
-                    </template>
-                  </v-list-item>
-                </v-list>
-
-                <v-list>
-                  <v-list-item prepend-icon="mdi-briefcase" link>
-                    <v-list-item-subtitle>john@gmail.com</v-list-item-subtitle>
-                  </v-list-item>
-                </v-list>
-              </v-card>
-            </v-menu>
+          <div class="pt-5">
+            <div class="flex items-center gap-5 justify-between">
+              <UserCardPopup />
+              <div class="text-sm text-zinc-500">
+                <span>২৪ জুলাই, ২০২২</span>
+              </div>
+            </div>
           </div>
         </v-card-text>
 
         <v-card-text>
-          <v-img
-            aspect-ratio="16/9"
-            cover
-            rounded
-            src="https://archive.roar.media/wp-content/uploads/2024/01/Feature-Image.jpg"
-          />
+          <v-img aspect-ratio="16/9" cover rounded
+            src="https://archive.roar.media/wp-content/uploads/2024/01/Feature-Image.jpg" />
         </v-card-text>
 
         <v-card-text>
@@ -131,6 +87,54 @@
             বেটারে পাইলে আমি সত্যি সত্যি মুগুর নিয়ে দৌড়ানি দেবো।
           </div>
         </v-card-text>
+      </v-card>
+
+
+      <v-card variant="flat" class=" mb-5">
+        <v-card-text>
+
+          <div class="flex flex-col lg:flex-row gap-5 lg:items-center justify-between">
+            <div class="flex gap-5 items-center">
+              <v-btn density="default" variant="tonal" color="green" icon>
+                <Icon name="bi:hand-thumbs-up" size="25" />
+              </v-btn>
+              <div>
+                <UAvatarGroup size="sm" :max="2">
+                  <UAvatar src="https://avatars.githubusercontent.com/u/739984?v=4" alt="benjamincanac" />
+                  <UAvatar src="https://avatars.githubusercontent.com/u/904724?v=4" alt="Atinux" />
+                  <UAvatar src="https://avatars.githubusercontent.com/u/7547335?v=4" alt="smarroufin" />
+                  <UAvatar src="https://avatars.githubusercontent.com/u/904724?v=4" alt="Atinux" />
+                  <UAvatar src="https://avatars.githubusercontent.com/u/7547335?v=4" alt="smarroufin" />
+                </UAvatarGroup>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 lg:gap-5 items-center text-zinc-900">
+               <v-chip>৫০ দেখা</v-chip>
+               <v-chip>২৮ লাইক</v-chip>
+               <v-chip>২০ মন্তব্য</v-chip>
+            </div>
+          </div>
+        </v-card-text>
+      </v-card>
+
+
+      <v-card variant="flat">
+        <v-card-text>
+          <v-textarea label="মন্তব্য লিখুন" row-height="25" rows="3" variant="outlined" auto-grow shaped></v-textarea>
+
+          <div>
+            <v-btn class="text-none mb-4" color="indigo-darken-3" variant="flat">
+              মন্তব্য পোস্ট করুন
+            </v-btn>
+          </div>
+        </v-card-text>
+      </v-card>
+
+      <v-card title="সকল মন্তব্য ক্রমানুসারে">
+         <v-card-text>
+          
+         </v-card-text>
       </v-card>
     </div>
   </NuxtLayout>
