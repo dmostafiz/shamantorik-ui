@@ -6,7 +6,7 @@
     </v-btn>
     <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
-    <v-spacer></v-spacer>
+    <!-- <v-spacer></v-spacer> -->
 
     <!-- <v-btn @click="navigateTo('/')" class="text-none" stacked>
       <v-badge color="success" dot>
@@ -46,7 +46,7 @@
 <v-icon>mdi-menu</v-icon>
 </v-btn> -->
 
-    <v-spacer></v-spacer>
+    <!-- <v-spacer></v-spacer> -->
 
     <v-btn class="text-none lg:!hidden" stacked>
       <v-avatar size="small">

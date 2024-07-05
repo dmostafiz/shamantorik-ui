@@ -26,7 +26,7 @@
           <div class="p-5">
             <!-- <v-card-text v-text="text"></v-card-text> -->
 
-            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-10">
               <div v-for="item, index in books" :key="index" class="flex flex-col items-center gap-1 w-full mr-3">
                 <div class="relative w-full h-[250px] bg-zinc-100  overflow-hidden shadow-sm rounded-md border-b">
                   <img :src="item.image" class="absolute opacity-95 w-full h-full object-cover" draggable="false">
