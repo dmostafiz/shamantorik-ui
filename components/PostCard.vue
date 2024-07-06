@@ -1,10 +1,16 @@
 <template>
-  <v-card variant="elevated" class="mx-auto mb-5" text="" :title="post?.title">
+  <v-card variant="elevated" class="mx-auto mb-5" text="">
 
+    <template #title>
+      <NuxtLink to="/post/w4fdgert">
+        <h1 class="hover:underline font-bold text-zinc-600">{{ post?.title }}</h1>
+      </NuxtLink>
+    </template>
     <template #prepend>
       <div class="mr-1">
         <UserCardPopup>
-          <UAvatar class="cursor-pointer" size="sm" src="https://avatars.githubusercontent.com/u/739984?v=4" alt="Avatar" />
+          <UAvatar class="cursor-pointer" size="sm" src="https://avatars.githubusercontent.com/u/739984?v=4"
+            alt="Avatar" />
         </UserCardPopup>
       </div>
     </template>
