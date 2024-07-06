@@ -89,10 +89,8 @@
         </v-card-text>
       </v-card>
 
-
-      <v-card variant="flat" class=" mb-5">
+      <v-card variant="flat" class="mb-5">
         <v-card-text>
-
           <div class="flex flex-col lg:flex-row gap-5 lg:items-center justify-between">
             <div class="flex gap-5 items-center">
               <v-btn density="default" variant="tonal" color="green" icon>
@@ -110,14 +108,12 @@
             </div>
 
             <div class="flex flex-wrap gap-2 lg:gap-5 items-center text-zinc-900">
-               <v-chip>৫০ দেখা</v-chip>
-               <v-chip>২৮ লাইক</v-chip>
-               <v-chip>২০ মন্তব্য</v-chip>
+              <v-chip>২৮ লাইক</v-chip>
+              <v-chip>২০ মন্তব্য</v-chip>
             </div>
           </div>
         </v-card-text>
       </v-card>
-
 
       <v-card variant="flat">
         <v-card-text>
@@ -131,10 +127,12 @@
         </v-card-text>
       </v-card>
 
-      <v-card title="সকল মন্তব্য ক্রমানুসারে">
-         <v-card-text>
-          
-         </v-card-text>
+      <v-card title="সকল মন্তব্য ক্রমানুসারে" variant="flat">
+        <v-card-text>
+          <div v-for="(comment, index) in comments" :key="index">
+            <CommentCard :comment="comment" />
+          </div>
+        </v-card-text>
       </v-card>
     </div>
   </NuxtLayout>
@@ -142,6 +140,190 @@
 
 <script lang="ts" setup>
 const menu = ref(false);
+
+const comments = [
+  {
+    id: 1,
+    user: {
+      name: "মোস্তাফিজ রহমান",
+      image: "https://avatars.githubusercontent.com/u/739981?v=4",
+    },
+    text:
+      "বাস যখন ধীরে ধীরে এগিয়ে যেতে শুরু করেছে তখনি আরাফ ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+    date: "২ দিন আগে",
+    like: "২২",
+    comments: [
+      {
+        id: 4,
+        parent_id: 1,
+        user: {
+          name: "লিমন শেখ",
+          image: "https://avatars.githubusercontent.com/u/739980?v=4",
+        },
+        text:
+          "বাস যখন ধীরে ধীরে এগিয়ে যেতে শুরু করেছে তখনি আরাফ ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+        date: "২ দিন আগে",
+        like: "২২",
+        comments: [],
+      },
+
+      {
+        id: 5,
+        parent_id: 1,
+        user: {
+          name: "আরমান মল্লিক",
+          image: "https://avatars.githubusercontent.com/u/739979?v=4",
+        },
+        text:
+          "ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+        date: "২ দিন আগে",
+        like: "২২",
+        comments: [
+          {
+            id: 10,
+            parent_id: 5,
+            user: {
+              name: "লিমন শেখ",
+              image: "https://avatars.githubusercontent.com/u/739980?v=4",
+            },
+            text:
+              "বাস যখন ধীরে ধীরে এগিয়ে যেতে শুরু করেছে তখনি আরাফ ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+            date: "২ দিন আগে",
+            like: "২২",
+            comments: [
+              {
+                id: 15,
+                parent_id: 10,
+                user: {
+                  name: "লিমন শেখ",
+                  image: "https://avatars.githubusercontent.com/u/739980?v=4",
+                },
+                text:
+                  "বাস যখন ধীরে ধীরে এগিয়ে যেতে শুরু করেছে তখনি আরাফ ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+                date: "২ দিন আগে",
+                like: "২২",
+                comments: [],
+              },
+
+            ],
+          },
+
+          {
+            id: 12,
+            parent_id: 5,
+            user: {
+              name: "নারগিস সুলতানা",
+              image: "https://avatars.githubusercontent.com/u/739978?v=2",
+            },
+            text:
+              "ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+            date: "২ দিন আগে",
+            like: "১২",
+            comments: [],
+          },
+
+          {
+            id: 11,
+            parent_id: 5,
+            user: {
+              name: "আরমান মল্লিক",
+              image: "https://avatars.githubusercontent.com/u/739979?v=4",
+            },
+            text:
+              "ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+            date: "২ দিন আগে",
+            like: "২২",
+            comments: [],
+          },
+
+
+        ],
+      },
+
+      {
+        id: 6,
+        parent_id: 1,
+        user: {
+          name: "নারগিস সুলতানা",
+          image: "https://avatars.githubusercontent.com/u/739978?v=2",
+        },
+        text:
+          "ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+        date: "২ দিন আগে",
+        like: "১২",
+        comments: [],
+      },
+    ],
+  },
+
+  {
+    id: 2,
+    user: {
+      name: "আনোয়ার ইসলাম",
+      image: "https://avatars.githubusercontent.com/u/739982?v=4",
+    },
+    text:
+      "ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+    date: "২ দিন আগে",
+    like: "২২",
+    comments: [
+      {
+        id: 7,
+        parent_id: 2,
+        user: {
+          name: "লিমন শেখ",
+          image: "https://avatars.githubusercontent.com/u/739980?v=4",
+        },
+        text:
+          "বাস যখন ধীরে ধীরে এগিয়ে যেতে শুরু করেছে তখনি আরাফ ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+        date: "২ দিন আগে",
+        like: "২২",
+        comments: [],
+      },
+
+      {
+        id: 8,
+        parent_id: 2,
+        user: {
+          name: "আরমান মল্লিক",
+          image: "https://avatars.githubusercontent.com/u/739979?v=4",
+        },
+        text:
+          "ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+        date: "২ দিন আগে",
+        like: "২২",
+        comments: [],
+      },
+
+      {
+        id: 9,
+        parent_id: 2,
+        user: {
+          name: "নারগিস সুলতানা",
+          image: "https://avatars.githubusercontent.com/u/739978?v=2",
+        },
+        text:
+          "ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+        date: "২ দিন আগে",
+        like: "১২",
+        comments: [],
+      },
+    ],
+  },
+
+  {
+    id: 3,
+    user: {
+      name: "ঈশিতা বিনতে",
+      image: "https://avatars.githubusercontent.com/u/739985?v=2",
+    },
+    text:
+      "ব্যাগ কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে বাসের দরজায় উঠে পড়ে। কাঁধে দৌড়াতে দৌড়াতে লাফ দিয়ে আরেকটু হলেই মিস হয়ে যেত বাসটা। অনলাইনে আগে থেকে",
+    date: "২ দিন আগে",
+    like: "১২",
+    comments: []
+  },
+];
 </script>
 
 <style></style>

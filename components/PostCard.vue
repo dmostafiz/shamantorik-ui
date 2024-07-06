@@ -48,8 +48,6 @@
           <span># রম্মগল্প</span>
         </div>
         <div class="flex gap-2 text-xs text-zinc-500">
-          <span>৫১ বার দেখা</span>
-          <span>.</span>
           <span>২০ টি লাইক </span>
           <span>.</span>
           <span>২৫ টি মন্তব্য</span>
