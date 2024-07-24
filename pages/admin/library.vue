@@ -1,6 +1,6 @@
 <template>
-  <NuxtLayout name="admin" title="Home">
-    Home
+  <NuxtLayout name="admin" title="Library">
+    Library
   </NuxtLayout>
 </template>
 
