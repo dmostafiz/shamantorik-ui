@@ -62,9 +62,9 @@ const links = [
     to: '/'
   },
   {
-    label: 'পাঠ তালিকা',
+    label: 'আমার লাইব্রেরী',
     icon: 'i-heroicons-command-line',
-    to: '/currently_reading',
+    to: '/my_library',
     badge: 2
 
   },

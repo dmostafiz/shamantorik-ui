@@ -1,12 +1,9 @@
 <template>
-  <v-menu
-    v-model="menu"
-    location="top start"
-    origin="top start"
-    transition="scale-transition"
-  >
+  <v-menu v-model="menu" location="top start" origin="top start" transition="scale-transition">
     <template v-slot:activator="{ props }">
       <div v-bind="props">
+
+
         <slot>
           <v-chip link pill size="small" color="white" variant="flat">
             <v-avatar start>
@@ -20,31 +17,28 @@
     </template>
 
     <v-card width="300">
-      <v-list bg-color="">
-        <v-list-item>
-          <template v-slot:prepend>
-            <v-avatar image="https://cdn.vuetifyjs.com/images/john.png"></v-avatar>
-          </template>
 
-          <v-list-item-title>মোস্তাফিজ রহমান</v-list-item-title>
+      <div class="relative bg-zinc-300">
+        <v-img class="!relative" height="200" src="/cover.jpg" cover></v-img>
 
-          <v-list-item-subtitle>২৩০ জন ফলোয়ার</v-list-item-subtitle>
+        <div class="!absolute w-full -bottom-0 p-3 pt-20 bg-gradient-to-t from-white via-white/80">
+          <div class="flex gap-5">
+            <UAvatar chip-color="primary" chip-text="" chip-position="top-right" size="lg"
+              src="https://avatars.githubusercontent.com/u/739984?v=4" alt="Avatar" />
+            <div>
+              <div>
+                <h2 class="font-bold text-md">মোস্তাফিজ রহমান</h2>
+                <p class="me-1 text-[12px] mb-2">২৩০ জন ফলোয়ার</p>
 
-          <template v-slot:append>
-            <v-list-item-action>
-              <v-btn variant="text" icon @click="menu = false">
-                <v-icon>mdi-close-circle</v-icon>
-              </v-btn>
-            </v-list-item-action>
-          </template>
-        </v-list-item>
-      </v-list>
+                <NuxtLink to="/blogger/fgjsddgddf-dfdf-dfdf">
+                  <p class="text-blue-500 text-sm">প্রোফাইল দেখুন</p>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <v-list>
-        <v-list-item prepend-icon="mdi-user" link>
-          <v-list-item-subtitle>প্রোফাইল দেখুন</v-list-item-subtitle>
-        </v-list-item>
-      </v-list>
     </v-card>
   </v-menu>
 </template>

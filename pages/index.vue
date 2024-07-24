@@ -6,20 +6,19 @@
 
       <v-card variant="flat" class="mb-5">
 
-        <v-tabs :update:modelValue="changeTab" v-model="tab" align-tabs="start" bg-color="deep-yellow" stacked>
-
+        <v-tabs v-model="tab" align-tabs="start" stacked>
           <v-tab @click="() => navigateTo('/')" value="posts">
-            <Icon size="30" class="mb-2" name="hugeicons:rss" />
+            <Icon size="30" name="hugeicons:rss" />
             সাম্প্রতিক পোস্ট
           </v-tab>
 
           <v-tab @click="() => navigateTo('/book_review')" value="review">
-            <Icon size="30" class="mb-2" name="solar:notebook-bookmark-outline" />
+            <Icon size="30" name="solar:notebook-bookmark-outline" />
             বই রিভিউ
           </v-tab>
 
           <v-tab @click="() => navigateTo('/archive')" value="archive">
-            <Icon size="30" class="mb-2" name="solar:archive-minimalistic-linear" />
+            <Icon size="30" name="solar:archive-minimalistic-linear" />
             ব্লগ আর্কাইভ
           </v-tab>
         </v-tabs>
@@ -40,7 +39,7 @@
         </NuxtLink>
       </div> -->
 
-
+      <!-- <Button label="Check" icon="pi pi-check" /> -->
 
       <div class="">
         <NuxtPage />
@@ -52,7 +51,7 @@
 <script setup>
 const router = useRoute()
 
-const tab = ref('posts')
+const tab = ref(null)
 
 
 // watch(tab, (newTab, oldTab) => {

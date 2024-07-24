@@ -1,6 +1,6 @@
 <template>
 
-  <v-card variant="elevated" class="mx-auto mb-5" text="" :title="item?.title">
+  <v-card variant="elevated" class="mx-auto mb-5" text="" :title="item?.authorName">
 
     <template #prepend>
       <div class="mr-1">
@@ -13,13 +13,15 @@
 
 
     <template #subtitle>
-      <div class="flex items-center gap-1 text-md  text-zinc-600">
+      <div class="flex gap-2 text-md  text-zinc-600">
         <!-- <NuxtLink to="/blogger/mostafiz">
           <span class=" text-blue-900">মোস্তাফিজ রহমান</span>
         </NuxtLink> -->
 
-        <span class="text-sm">১৩ই জুন, ২০২২</span>
 
+        <span class="text-sm">১৩ই জুন, ২০২২</span>
+        <span>|</span>
+        (3.2)<NuxtRating ratingSize="22px" :read-only="true" :ratingValue="item?.rating || 3.5" />
 
       </div>
     </template>
@@ -39,11 +41,8 @@
 
 
         <div class="flex-1">
-
           <div class="text-lg px-2 !text-slate-400">
-            <div class="mb-2">
-              <NuxtRating ratingSize="22px" :read-only="true" :ratingValue="item?.rating || 3.5" />
-            </div>
+
             {{ item?.description }}
           </div>
         </div>
