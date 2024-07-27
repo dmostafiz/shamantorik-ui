@@ -78,7 +78,7 @@ const zoomMinus = () => {
 </script>
 
 <template>
-  <div ref="bookFrameRef" @scroll="(e) => onScrollHandler(e)" class="h-[580px] w-full overflow-y-auto">
+  <div ref="bookFrameRef" @scroll="(e) => onScrollHandler(e)" :class="pdfLoading == false && 'h-[580px]'" class="w-full overflow-y-auto">
     <VuePDF :pdf="pdf" :page="page" @loaded="onLoaded" :scale="scale" watermark-text="সামান্তরিক"
       :watermark-options="watermarkOptions" :fit-parent="fitParent">
       <div class="w-full flex flex-col items-center justify-center py-20">
