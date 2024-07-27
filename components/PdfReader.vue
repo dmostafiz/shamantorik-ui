@@ -70,12 +70,12 @@ const scale = ref(1.75);
 const fitParent = ref(true)
 const zoomPlus = () => {
   fitParent.value = false
-  scale.value = scale.value + .1;
+  scale.value = scale.value + .25;
 };
 
 const zoomMinus = () => {
   fitParent.value = false
-  scale.value = scale.value - .1;
+  scale.value = scale.value - .25;
 };
 </script>
 
@@ -129,12 +129,12 @@ const zoomMinus = () => {
   </div>
 
   <div v-else class="w-full flex flex-col items-center justify-center h-[500px]">
-    <div class="mb-2">
-      <p>বইটি লোড হচ্ছে...</p>
-    </div>
-    <v-progress-circular :model-value="pdfLoaded" :rotate="360" :size="120" :width="10" color="teal">
-      <template v-slot:default> {{ pdfLoaded }} % </template>
+    <v-progress-circular :model-value="pdfLoaded" :rotate="360" :size="120" :width="10" color="gray">
+      <template v-slot:default> {{ parseInt(pdfLoaded) }} % </template>
     </v-progress-circular>
+    <div class="mt-2">
+      <p>বইটি লোড হচ্ছে</p>
+    </div>
 
     <!-- <ProgressBar :value="20"></ProgressBar> -->
     <!-- <ProgressSpinner strokeWidth="1" /> -->
