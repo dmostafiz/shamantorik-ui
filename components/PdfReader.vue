@@ -128,13 +128,10 @@ const zoomMinus = () => {
     </div>
   </div>
 
-  <div v-else class="w-full flex flex-col items-center justify-center h-[500px]">
+  <div v-else class="w-full flex flex-col items-center justify-center h-[500px] pb-20">
     <v-progress-circular :model-value="pdfLoaded" :rotate="360" :size="120" :width="10" color="gray">
       <template v-slot:default> {{ parseInt(pdfLoaded) }} % </template>
     </v-progress-circular>
-    <div class="mt-2">
-      <p>বইটি লোড হচ্ছে</p>
-    </div>
 
     <!-- <ProgressBar :value="20"></ProgressBar> -->
     <!-- <ProgressSpinner strokeWidth="1" /> -->
