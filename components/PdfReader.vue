@@ -20,7 +20,7 @@ function onLoaded(value) {
 
 function onProgress({ loaded, total }) {
   console.log(`${(loaded / total) * 100}% Loaded`);
-  pdfLoaded.value = loaded
+  pdfLoaded.value = (loaded / total) * 100
 }
 
 function onError(reason) {
@@ -132,11 +132,15 @@ const zoomMinus = () => {
     <div class="mb-2">
       <p>বইটি লোড হচ্ছে...</p>
     </div>
+    <v-progress-circular :model-value="pdfLoaded" :rotate="360" :size="120" :width="10" color="teal">
+      <template v-slot:default> {{ pdfLoaded }} % </template>
+    </v-progress-circular>
+
     <!-- <ProgressBar :value="20"></ProgressBar> -->
     <!-- <ProgressSpinner strokeWidth="1" /> -->
-    <div class="w-full px-20">
+    <!-- <div class="w-full px-20">
       <ProgressBar :value="pdfLoaded"> {{ pdfLoaded }}/100 </ProgressBar>
-    </div>
+    </div> -->
     <!-- <Button>Loading...</Button> -->
     <!-- <v-progress-circular
       :size="50"
