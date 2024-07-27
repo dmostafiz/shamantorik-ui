@@ -10,7 +10,10 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-rating",
     "vuetify-nuxt-module",
-    "nuxt-tiptap-editor"
+    "nuxt-tiptap-editor",
+    '@nuxtjs/device',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
 
   colorMode: {

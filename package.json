@@ -2,9 +2,15 @@
   "name": "nuxt-app",
   "private": true,
   "type": "module",
+  "overrides": {
+    "vue": "latest"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "devbuild": "next build && next start",
+    "server": "cd ./server && npm run dev",
+    "serve": "concurrently \"npm run dev\" \"npm run server\"",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -13,17 +19,25 @@
   "dependencies": {
     "@nuxt/image": "^1.7.0",
     "@nuxt/ui": "^2.16.0",
+    "@pinia/nuxt": "^0.5.2",
     "@primevue/themes": "^4.0.0",
     "@tato30/vue-pdf": "^1.10.0",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0",
+    "concurrently": "^8.2.2",
     "nuxt": "^3.11.2",
     "nuxt-rating": "^0.0.15",
     "nuxt-tiptap-editor": "^1.1.2",
     "pdfjs-dist": "^4.4.168",
+    "pinia": "^2.2.0",
+    "pinia-plugin-persistedstate": "^3.2.1",
     "primevue": "^4.0.0",
     "vuetify-nuxt-module": "^0.14.1"
   },
   "devDependencies": {
     "@nuxt/ui": "npm:@nuxt/ui-edge@latest",
+    "@nuxtjs/device": "^3.1.1",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
     "@primevue/nuxt-module": "^4.0.0",
     "@tiptap/extension-placeholder": "^2.4.0",
     "vite-plugin-top-level-await": "^1.4.1"
