@@ -1,10 +1,11 @@
 <script setup>
 import { VuePDF, usePDF } from "@tato30/vue-pdf";
 
-// const pdfUrl = 'https://shop-xcelerate.s3.us-west-1.amazonaws.com//%E0%A6%B8%E0%A7%82%E0%A6%B0%E0%A7%8D%E0%A6%AF+%E0%A6%A4%E0%A7%81%E0%A6%AE%E0%A6%BF+%E0%A6%B8%E0%A6%BE%E0%A6%A5%E0%A7%80.pdf'
-const pdfUrl = "/book1.pdf";
+const pdfUrl = 'https://shop-xcelerate.s3.us-west-1.amazonaws.com//%E0%A6%B8%E0%A7%82%E0%A6%B0%E0%A7%8D%E0%A6%AF+%E0%A6%A4%E0%A7%81%E0%A6%AE%E0%A6%BF+%E0%A6%B8%E0%A6%BE%E0%A6%A5%E0%A7%80.pdf'
+// const pdfUrl = "/book1.pdf";
 
 const page = ref(10);
+const pdfLoaded = ref(0)
 const { pdf, pages } = usePDF(pdfUrl, {
   // onPassword,
   onProgress,
@@ -19,6 +20,7 @@ function onLoaded(value) {
 
 function onProgress({ loaded, total }) {
   console.log(`${(loaded / total) * 100}% Loaded`);
+  pdfLoaded.value = loaded
 }
 
 function onError(reason) {
@@ -126,9 +128,16 @@ const zoomMinus = () => {
     </div>
   </div>
 
-  <div v-else class="w-full flex flex-col items-center justify-center py-20">
-    <p>বইটি লোড হচ্ছে...</p>
-    <ProgressSpinner strokeWidth="1" />
+  <div v-else class="w-full flex flex-col items-center justify-center h-[500px]">
+    <div class="mb-2">
+      <p>বইটি লোড হচ্ছে...</p>
+    </div>
+    <!-- <ProgressBar :value="20"></ProgressBar> -->
+    <!-- <ProgressSpinner strokeWidth="1" /> -->
+    <div class="w-full px-20">
+      <ProgressBar :value="pdfLoaded"> {{ pdfLoaded }}/100 </ProgressBar>
+    </div>
+    <!-- <Button>Loading...</Button> -->
     <!-- <v-progress-circular
       :size="50"
       color="primary"
