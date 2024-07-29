@@ -14,7 +14,14 @@ export default defineNuxtConfig({
     '@nuxtjs/device',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
+    '@vee-validate/nuxt',
   ],
+
+  runtimeConfig: {
+    public: {
+      API_SERVER: process.env.API_SERVER,
+    }
+  },
 
   colorMode: {
     preference: 'light'
