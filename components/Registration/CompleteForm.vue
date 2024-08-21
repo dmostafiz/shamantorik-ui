@@ -60,7 +60,13 @@ const systemStore = useSystemStore()
 
 const { errors, handleSubmit, defineField } = useForm({
   validationSchema: yup.object({
-    username: yup.string().required('ইউজারনেম ইংরেজিতে আবশ্যক'),
+    username: yup.string()
+      .required('ইউজারনেম ইংরেজিতে আবশ্যক')
+      .test('checkUsername', 'ইউজারনেমটি ব্যবহার করা আছে।', async (value) => {
+        const res = await $axios().post('/auth/verify_is_available', { type: 'username', value })
+        console.log('email validating.. ', res?.data?.ok)
+        return res?.data?.ok
+      }),
     password: yup.string().required('পাসওয়ার্ড আবশ্যক'),
     confirm_password: yup.string().required('পাসওয়ার্ড নিশ্চিতকরণ আবশ্যক'),
   }),
@@ -86,9 +92,6 @@ const onSubmit = handleSubmit(async values => {
       detail: data?.msg,
       life: 3000
     });
-
-    systemStore.upload_photo_popup = true
-    navigateTo('/')
 
   } else {
     {

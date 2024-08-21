@@ -53,6 +53,9 @@
 <script setup>
 import { useForm } from 'vee-validate';
 import * as yup from 'yup';
+const toast = useToast()
+const { $axios } = useNuxtApp()
+const authStore = useAuthStore()
 
 const { errors, handleSubmit, defineField } = useForm({
   validationSchema: yup.object({
@@ -64,8 +67,32 @@ const { errors, handleSubmit, defineField } = useForm({
 const [username, usernameAttrs] = defineField('username');
 const [password, passwordAttrs] = defineField('password');
 
-const onSubmit = handleSubmit(values => {
-  alert(JSON.stringify(values, null, 2));
+const onSubmit = handleSubmit(async values => {
+  // alert(JSON.stringify(values, null, 2));
+  const res = await $axios().post('/auth/login', values)
+
+  if (res?.data?.ok) {
+    authStore.addUser(res?.data?.user)
+    authStore._token = res?.data?.token?.token
+
+    toast.add({
+      severity: 'success',
+      summary: 'Login Success!',
+      detail: '',
+      life: 3000
+    });
+
+    navigateTo('/')
+  } else {
+    toast.add({
+      severity: 'error',
+      summary: 'Login Error!',
+      detail: res?.data?.msg,
+      life: 3000
+    });
+
+  }
+
 });
 
 

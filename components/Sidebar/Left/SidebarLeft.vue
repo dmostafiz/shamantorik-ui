@@ -1,8 +1,8 @@
 <template>
   
-  <LoginForm />
+  <LoginForm v-if="!authStore.user.id" />
 
-  <div class="hidden lg:block">
+  <div v-if="authStore.user.id" class="hidden lg:block">
     <v-card>
       <v-card-text>
         <UVerticalNavigation :links="links" />
@@ -12,10 +12,11 @@
 </template>
 
 <script lang="ts" setup>
+const authStore = useAuthStore()
 const links = [
   [
     {
-      label: 'মোস্তাফিজ রহমান',
+      label: `${authStore?.user?.firstName} ${authStore?.user?.lastName}`,
       avatar: {
         src: 'https://avatars.githubusercontent.com/u/739984?v=4'
       },

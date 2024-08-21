@@ -31,8 +31,8 @@
 
         <!-- <UButton block>Login Now</UButton> -->
         <div>
-          <v-btn block type="submit" class="text-none mb-3" color="blue-grey-darken-1" prepend-icon="mdi-check" rounded="md"
-            variant="flat">
+          <v-btn block type="submit" class="text-none mb-3" color="blue-grey-darken-1" prepend-icon="mdi-check"
+            rounded="md" variant="flat">
             এগিয়ে যান
           </v-btn>
 
@@ -56,26 +56,31 @@ const registerStore = useRegisterStore()
 
 const { errors, handleSubmit, defineField } = useForm({
   validationSchema: yup.object({
-    email: yup.string().email('ভ্যালিড ইমেইল এড্রেস লিখুন').required('আপনার ইমেইল লিখুন'),
+    email: yup.string()
+      .email('ভ্যালিড ইমেইল এড্রেস লিখুন')
+      .required('আপনার ইমেইল লিখুন')
+      .test('checkEmail', 'ইমেইলটি ব্যবহার করা আছে।', async (value) => {
+        const res = await $axios().post('/auth/verify_is_available', { type: 'email', value })
+        console.log('email validating.. ', res?.data?.ok)
+        return res?.data?.ok
+      }),
   }),
 });
 
 const [email, emailAttrs] = defineField('email');
 
 const onSubmit = handleSubmit(async values => {
-  // alert(JSON.stringify(values, null, 2));
-  const res = await $axios().post('/auth/verify_available_email', values)
 
-  console.log('res?.data', res?.data)
-  if (res?.data?.ok) {
-    registerStore.email = values.email
-    navigateTo('/auth/registration?submit=profile')
-  }else{
-    
-  }
+  registerStore.email = values.email
+  navigateTo('/auth/registration?submit=profile')
+
 
 });
 
+
+const mockApiRequest = (value) => {
+
+};
 
 </script>
 

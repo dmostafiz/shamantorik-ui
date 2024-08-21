@@ -27,6 +27,7 @@
     "@vueuse/nuxt": "^10.11.0",
     "axios": "^1.7.2",
     "concurrently": "^8.2.2",
+    "js-cookie": "^3.0.5",
     "nuxt": "^3.11.2",
     "nuxt-rating": "^0.0.15",
     "nuxt-tiptap-editor": "^1.1.2",
@@ -52,6 +53,7 @@
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
     "@primevue/nuxt-module": "^4.0.0",
     "@tiptap/extension-placeholder": "^2.4.0",
+    "@types/js-cookie": "^3.0.6",
     "vite-plugin-top-level-await": "^1.4.1"
   }
 }

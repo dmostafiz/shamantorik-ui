@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import Cookies from 'js-cookie'
 
 export const useRegisterStore = defineStore({
   id: 'registerStore',
@@ -7,7 +8,7 @@ export const useRegisterStore = defineStore({
     email: '',
     first_name: '',
     last_name: '',
-    avatar: '',
+    avatar: '/avatar.png',
     dob: null,
     password: null,
     isSubmitting: false,
@@ -20,6 +21,9 @@ export const useRegisterStore = defineStore({
     async register() {
 
       console.log('register from store')
+
+      const authStore = useAuthStore()
+      const systemStore = useSystemStore()
 
       // const toast = useToast()
 
@@ -48,7 +52,11 @@ export const useRegisterStore = defineStore({
         //   detail: res?.data?.msg,
         //   life: 3000
         // });
-        console.log('Reg success: ', res?.data?.msg)
+
+        authStore.addUser(res?.data?.user)
+        authStore._token = res?.data?.token?.token
+        systemStore.upload_photo_popup = true
+        navigateTo('/')
 
         this.clearAll()
 
@@ -61,21 +69,8 @@ export const useRegisterStore = defineStore({
         console.log('Reg error: ', res?.data?.msg)
 
         return res.data
-        // toast.add({
-        //   severity: 'error',
-        //   summary: 'Ops!',
-        //   detail: res?.data?.msg,
-        //   life: 3000
-        // });
       }
 
-
-      this.$state.isSubmitting = false
-
-      setTimeout(() => {
-        this.$state.isError = false
-        this.$state.errorMessage = ''
-      }, 5000)
     },
 
     clearAll() {
@@ -83,7 +78,7 @@ export const useRegisterStore = defineStore({
       this.$state.email = ''
       this.$state.first_name = ''
       this.$state.last_name = ''
-      this.$state.avatar = ''
+      this.$state.avatar = '/avatar.png'
       this.$state.dob = null
       this.$state.password = null
       this.$state.isSubmitting = false

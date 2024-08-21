@@ -170,7 +170,7 @@ const zoomMinus = () => {
     </div>
   </div>
 
-  <div v-else class="w-full flex flex-col items-center justify-center h-[500px]">
+  <div v-else class="w-full flex flex-col items-center h-[500px]">
     <v-progress-circular
       :model-value="pdfLoaded"
       :rotate="360"
