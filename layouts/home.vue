@@ -20,9 +20,9 @@
 
       <div class="flex-1">
 
-        <div v-if="props.topCarousel" class="mb-5">
+        <!-- <div v-if="props.topCarousel" class="mb-5">
           <LandingTopCarousel />
-        </div>
+        </div> -->
 
         <div class="w-full flex-col flex  lg:flex-row gap-8 ">
 
