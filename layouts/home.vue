@@ -26,7 +26,7 @@
 
         <div class="w-full flex-col flex  lg:flex-row gap-8 ">
 
-          <div class="flex-1">
+          <div class="w-full flex-1">
             <slot />
           </div>
 

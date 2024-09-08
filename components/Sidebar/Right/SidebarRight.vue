@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mb-8">
+    <!-- <div class="mb-8">
       <h1 class=" text-slate-600 text-lg">বর্তমানে পড়ছেন</h1>
 
       <v-text>
@@ -49,7 +49,7 @@
         </v-card>
         <CustomLink to="/currently_reading" label="পাঠ্য তালিকা দেখুন" />
       </v-text>
-    </div>
+    </div> -->
 
     <div class="mb-8">
       <div class="">

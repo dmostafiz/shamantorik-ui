@@ -12,10 +12,10 @@
             সাম্প্রতিক পোস্ট
           </v-tab>
 
-          <v-tab @click="() => navigateTo('/book_review')" value="review">
+          <!-- <v-tab @click="() => navigateTo('/book_review')" value="review">
             <Icon size="30" name="solar:notebook-bookmark-outline" />
             বই রিভিউ
-          </v-tab>
+          </v-tab> -->
 
           <v-tab @click="() => navigateTo('/archive')" value="archive">
             <Icon size="30" name="solar:archive-minimalistic-linear" />
